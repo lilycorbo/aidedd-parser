@@ -1,0 +1,32 @@
+{
+  "name": "aidedd-parser",
+  "version": "1.0.0",
+  "description": "Utilities for parsing AideDD output",
+  "homepage": "https://github.com/lilycorbo/aidedd-parser#readme",
+  "bugs": {
+    "url": "https://github.com/lilycorbo/aidedd-parser/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilycorbo/aidedd-parser.git"
+  },
+  "license": "GNU AGPLv3",
+  "author": "Lily Corbo <lily+git@lilycorbo.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "spells": "tsc && node dist/index.js --spells --out out/spells.json",
+    "feats": "tsc && node dist/index.js --feats --out out/feats.json"
+  },
+  "devDependencies": {
+    "@truto/turndown-plugin-gfm": "^1.0.2",
+    "@types/jsdom": "^28.0.3",
+    "@types/minimist": "^1.2.5",
+    "@types/turndown": "^5.0.6",
+    "jsdom": "^29.1.1",
+    "minimist": "^1.2.8",
+    "turndown": "^7.2.4",
+    "typescript": "^6.0.3"
+  }
+}
