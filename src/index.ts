@@ -5,13 +5,25 @@ import parseArgs from 'minimist';
 import * as fs from 'fs';
 import path from 'path';
 
-export async function spells(): Promise<Spells.Spell[]> {
+const OUT_PATH = 'out/';
+
+export async function spells(useLocal: boolean = false): Promise<Spells.Spell[]> {
+    if (useLocal && fs.existsSync(path.resolve(OUT_PATH, 'spells.json'))) {
+        let text = fs.readFileSync(path.resolve(OUT_PATH, 'spells.json'), { encoding: 'utf8' });
+        let spells = JSON.parse(text);
+        return spells;
+    }
     const spellsDoc = await fetchSpells();
     const spells = await parseSpells(spellsDoc);
     return spells;
 }
 
-export async function feats() {
+export async function feats(useLocal: boolean = false): Promise<Feats.Feat[]> {
+    if (useLocal && fs.existsSync(path.resolve(OUT_PATH, 'feats.json'))) {
+        let text = fs.readFileSync(path.resolve(OUT_PATH, 'feats.json'), { encoding: 'utf8' });
+        let spells = JSON.parse(text);
+        return spells;
+    }
     const featsDoc = await fetchFeats();
     const feats = await parseFeats(featsDoc);
     return feats;
@@ -21,9 +33,9 @@ async function main() {
     let args = parseArgs(process.argv.slice(2));
     let result: any;
     if (args.spells) {
-        result = await spells();
+        result = await spells(args.local ?? false);
     } else if (args.feats) {
-        result = await feats();
+        result = await feats(args.local ?? false);
     }
     if (args.out) {
         let filepath = path.resolve(args.out);
