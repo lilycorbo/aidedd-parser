@@ -13,7 +13,7 @@
   "license": "GNU AGPLv3",
   "author": "Lily Corbo <lily+git@lilycorbo.com>",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "dist/index.js",
   "files": [
     "dist/",
     "out/"

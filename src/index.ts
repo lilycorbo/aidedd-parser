@@ -9,6 +9,11 @@ import * as Feats from './Feats';
 
 const OUT_PATH = 'out/';
 
+export {
+    Spells,
+    Feats,
+};
+
 export async function spells(useLocal: boolean = false): Promise<Spells.Spell[]> {
     if (useLocal && fs.existsSync(path.resolve(OUT_PATH, 'spells.json'))) {
         let text = fs.readFileSync(path.resolve(OUT_PATH, 'spells.json'), { encoding: 'utf8' });
