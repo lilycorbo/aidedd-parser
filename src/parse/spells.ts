@@ -1,4 +1,5 @@
 
+import * as Spells from '../Spells';
 import { gfm } from '@truto/turndown-plugin-gfm';
 import TurndownService from 'turndown';
 const turndown = new TurndownService();

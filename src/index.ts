@@ -4,6 +4,8 @@ import { parseFeats, parseSpells } from './parse';
 import parseArgs from 'minimist';
 import * as fs from 'fs';
 import path from 'path';
+import * as Spells from './Spells';
+import * as Feats from './Feats';
 
 const OUT_PATH = 'out/';
 
